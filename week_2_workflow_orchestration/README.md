@@ -4,6 +4,7 @@
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
 
 
+
 ### Data Lake (GCS)
 
 * What is a Data Lake
