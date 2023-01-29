@@ -16,3 +16,4 @@ serving_dir
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
 week_1_basics_n_setup/2_docker_sql/pgadmin/pgadmin4.db
+week_2_workflow_orchestration/yellow_tripdata_2021-01.csv.gz
