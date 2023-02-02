@@ -3,7 +3,7 @@
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
 
-### Files
+### Files.
 [Vicnenzo's DE Zoomcamp Prefect Repo - For Week 2](https://github.com/VincenzoGalante/prefect-zoomcamp)
 
 ### Data Lake (GCS)
