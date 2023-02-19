@@ -22,13 +22,13 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
 @task(log_prints=True)
 def write_local(df: pd.DataFrame, file: str) -> Path:
     path = Path(__file__).parent
-    folder = f"{path}/FHV NY Taxi data 2019"
+    folder = f"{path}/fhv_taxi_data"
 
     if not os.path.exists(folder):
         os.makedirs(folder)
 
-    local_path = Path(f"{path}/FHV NY Taxi data 2019/{file}.csv.gz")
-    gcs_path = Path(f"./FHV NY Taxi data 2019/{file}.csv.gz")
+    local_path = Path(f"{path}/fhv_taxi_data/{file}.csv.gz")
+    gcs_path = Path(f"./fhv_taxi_data/{file}.csv.gz")
 
     print(f"Here are the dtypes : {df.dtypes}")
     # df = df.to_parquet(local_path, compression="gzip")

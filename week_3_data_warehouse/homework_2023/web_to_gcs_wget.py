@@ -17,17 +17,17 @@ def write_gcs(local_path: Path, gc_path: Path) -> None:
 
 
 @flow(log_prints=True)
-def main_flow(months: list) -> None:
+def main_flow(months: list, year: int) -> None:
 
     for month in months:
         path = Path(__file__).parent
         folder = f"{path}/fhv_ny_taxi_data/"
 
-        file = f"fhv_tripdata_2019-{month:0>2}.csv.gz"
+        file = f"fhv_tripdata_{year}-{month:0>2}.csv.gz"
         data_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhv/{file}"
 
         local_path = Path(f"{folder}/{file}")
-        gcs_path = Path(f"./FHV NY Taxi data 2019/{file}")
+        gcs_path = Path(f"./fhv_taxi_data/{file}")
 
         fetch_data(data_url, folder)
         write_gcs(local_path, gcs_path)
@@ -35,4 +35,5 @@ def main_flow(months: list) -> None:
 
 if __name__ == "__main__":
     months = list(range(1, 13))
-    main_flow(months)
+    year = 2020
+    main_flow(months, year)
