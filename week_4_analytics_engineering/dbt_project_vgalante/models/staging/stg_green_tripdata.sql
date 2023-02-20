@@ -1,5 +1,11 @@
 {{ config(materialized='view') }} 
  
+with trip_data as (
+    select *, row_number() over(partition by cast(vendorid as numeric), lpep_pickup_datetime) as rn
+    from {{ source('staging','green_taxi_data') }} 
+    where vendorid is not null
+) 
+
 select
     -- identifiers
     {{ dbt_utils.surrogate_key(['vendorid','lpep_pickup_datetime']) }} as tripid,
@@ -31,8 +37,9 @@ select
     {{ get_payment_type_description('payment_type')}} as payment_type_description,
     cast(congestion_surcharge as numeric) as congestion_surcharge
 
-from {{ source('staging','green_taxi_data') }} 
-where vendorid is not null
+from trip_data
+where rn = 1
+
 -- dbt build -m stg_green_tripdata.sql --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
 

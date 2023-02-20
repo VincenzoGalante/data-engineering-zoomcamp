@@ -78,9 +78,9 @@ models:
               A numeric code signifying how the passenger paid for the trip.
             tests: 
               - accepted_values:
-                  values: "{{ var('payment_type_values') }}"
+                  values: "{{ var('payment_type_values') }}" # variables are defined in porject.yml
                   severity: warn
-                  quote: false
+                  quote: false  # as normally variables are read in as varchars / strings
           - name: get_payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
