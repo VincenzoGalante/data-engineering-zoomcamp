@@ -1,0 +1,2 @@
+*.snappy.parquet.crc
+*.csv.gz
