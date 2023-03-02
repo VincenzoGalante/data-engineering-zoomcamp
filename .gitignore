@@ -7,6 +7,7 @@
 *.tfstate.*
 *.csv
 *.csv.gz
+*.snappy.parquet.crc
 **.terraform
 **.terraform.lock.*
 **google_credentials.json
